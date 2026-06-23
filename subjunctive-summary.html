@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>英語の仮定法まとめ</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17202a;
+      --muted: #5f6f7a;
+      --line: #d8e0e5;
+      --paper: #fbfcfd;
+      --panel: #ffffff;
+      --blue: #1f6feb;
+      --green: #1f8a5b;
+      --red: #b42318;
+      --amber: #9a6700;
+      --violet: #7547c8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 56px;
+    }
+
+    header {
+      padding: 28px 0 20px;
+      border-bottom: 2px solid var(--line);
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 34px 0 14px;
+      font-size: 1.45rem;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    .lead {
+      max-width: 860px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 18px 0 8px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgb(23 32 42 / 0.05);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 2px 9px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .tag.blue { background: var(--blue); }
+    .tag.green { background: var(--green); }
+    .tag.red { background: var(--red); }
+    .tag.amber { background: var(--amber); }
+    .tag.violet { background: var(--violet); }
+
+    .formula {
+      display: block;
+      margin: 10px 0;
+      padding: 10px 12px;
+      border-left: 4px solid var(--blue);
+      background: #eef5ff;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      overflow-wrap: anywhere;
+    }
+
+    .note {
+      margin-top: 10px;
+      padding: 12px 14px;
+      border: 1px solid #f0d58c;
+      border-radius: 8px;
+      background: #fff8e5;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th,
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: #edf2f7;
+      font-weight: 800;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    code {
+      padding: 1px 4px;
+      border-radius: 4px;
+      background: #edf2f7;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.95em;
+    }
+
+    .example {
+      margin-top: 8px;
+      color: var(--muted);
+    }
+
+    .example strong {
+      color: var(--ink);
+    }
+
+    .mini-list {
+      margin: 8px 0 0;
+      padding-left: 1.2em;
+    }
+
+    .mini-list li {
+      margin: 4px 0;
+    }
+
+    .compare {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    @media (max-width: 780px) {
+      main {
+        width: min(100% - 22px, 1120px);
+        padding-top: 24px;
+      }
+
+      .grid,
+      .compare {
+        grid-template-columns: 1fr;
+      }
+
+      table,
+      thead,
+      tbody,
+      tr,
+      th,
+      td {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        border-bottom: 1px solid var(--line);
+      }
+
+      td {
+        border-bottom: 0;
+      }
+
+      td::before {
+        display: block;
+        margin-bottom: 3px;
+        color: var(--muted);
+        font-size: 0.82rem;
+        font-weight: 800;
+      }
+
+      td:nth-child(1)::before { content: "種類"; }
+      td:nth-child(2)::before { content: "意味"; }
+      td:nth-child(3)::before { content: "形"; }
+      td:nth-child(4)::before { content: "例"; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>英語の仮定法まとめ</h1>
+      <p class="lead">
+        仮定法は「事実ではないこと」「まだ実現していないこと」「実現してほしいこと」を表すために、
+        あえて時制をずらしたり、動詞の原形を使ったりする表現です。
+      </p>
+    </header>
+
+    <section aria-labelledby="overview">
+      <h2 id="overview">全体像</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>種類</th>
+            <th>意味</th>
+            <th>基本形</th>
+            <th>例</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tag blue">仮定法過去</span></td>
+            <td>現在・未来について「もし今そうなら」と、事実と違うことや可能性の低いことを言う。</td>
+            <td><code>If + 主語 + 過去形, 主語 + would/could/might + 原形</code></td>
+            <td>If I <strong>were</strong> rich, I <strong>would travel</strong> around the world.</td>
+          </tr>
+          <tr>
+            <td><span class="tag green">仮定法過去完了</span></td>
+            <td>過去について「もしあの時そうだったなら」と、過去の事実と違うことを言う。</td>
+            <td><code>If + 主語 + had + 過去分詞, 主語 + would/could/might + have + 過去分詞</code></td>
+            <td>If I <strong>had studied</strong> harder, I <strong>would have passed</strong> the exam.</td>
+          </tr>
+          <tr>
+            <td><span class="tag amber">過去完了</span></td>
+            <td>仮定法ではなく、過去のある時点より前に起きたことを表す普通の時制。</td>
+            <td><code>主語 + had + 過去分詞</code></td>
+            <td>When I arrived, the train <strong>had already left</strong>.</td>
+          </tr>
+          <tr>
+            <td><span class="tag red">仮定法現在</span></td>
+            <td>要求・提案・決定・命令・必要性などの内容を、that節の中で「そうせよ」という感じで表す。</td>
+            <td><code>主語 + 動詞/形容詞 + that + 主語 + (should) + 原形</code></td>
+            <td>They demanded that he <strong>be</strong> present. / It is important that she <strong>study</strong>.</td>
+          </tr>
+          <tr>
+            <td><span class="tag violet">仮定法未来</span></td>
+            <td>未来について「万一」「仮に」という低い可能性・強い仮定を表す。</td>
+            <td><code>If + 主語 + should + 原形</code> / <code>If + 主語 + were to + 原形</code></td>
+            <td>If it <strong>should rain</strong> tomorrow, the game will be canceled.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="past">
+      <h2 id="past">1. 仮定法過去</h2>
+      <div class="card">
+        <h3>現在の反実・可能性の低い未来</h3>
+        <span class="formula">If + S + 過去形, S + would / could / might + 動詞の原形</span>
+        <p>
+          名前は「過去」ですが、意味は主に「今の事実と違うこと」です。
+          <code>be</code>動詞は、正式には主語に関係なく<code>were</code>を使うのが基本です。
+        </p>
+        <p class="example">
+          <strong>If I were you, I would apologize.</strong><br>
+          もし私があなたなら、謝るだろう。
+        </p>
+      </div>
+    </section>
+
+    <section aria-labelledby="past-perfect">
+      <h2 id="past-perfect">2. 仮定法過去完了</h2>
+      <div class="card">
+        <h3>過去の反実</h3>
+        <span class="formula">If + S + had + 過去分詞, S + would / could / might + have + 過去分詞</span>
+        <p>
+          「実際にはそうしなかった・そうならなかった」という過去への後悔、推量、別の可能性を表します。
+        </p>
+        <p class="example">
+          <strong>If she had left earlier, she could have caught the train.</strong><br>
+          もし彼女がもっと早く出ていたら、その電車に間に合ったかもしれない。
+        </p>
+      </div>
+    </section>
+
+    <section aria-labelledby="past-perfect-comparison">
+      <h2 id="past-perfect-comparison">3. 過去完了との違い</h2>
+      <div class="compare">
+        <div class="card">
+          <h3><span class="tag amber">普通の過去完了</span></h3>
+          <p>過去のある時点よりさらに前の出来事を表します。反実の意味はありません。</p>
+          <span class="formula">When I got home, my brother had eaten dinner.</span>
+          <p class="example">私が帰宅した時、弟は夕食を食べ終えていた。</p>
+        </div>
+        <div class="card">
+          <h3><span class="tag green">仮定法過去完了</span></h3>
+          <p><code>had + 過去分詞</code>の形を使って、過去の事実と違う仮定を表します。</p>
+          <span class="formula">If I had known the truth, I would have told you.</span>
+          <p class="example">もし真実を知っていたら、あなたに話していただろう。</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="present-subjunctive">
+      <h2 id="present-subjunctive">4. 仮定法現在</h2>
+      <div class="card">
+        <h3>that節の中で「原形」を使う</h3>
+        <span class="formula">要求・提案・決定・命令など + that + S + (should) + 動詞の原形</span>
+        <p>
+          仮定法現在は、特に要求・提案・決定・命令・必要性を表す語の後で使われます。
+          that節の中では、三単現の<code>-s</code>や過去形にせず、動詞の原形を使います。
+          イギリス英語では<code>should + 原形</code>もよく使われます。
+        </p>
+        <ul class="mini-list">
+          <li>要求: <code>demand</code>, <code>request</code>, <code>require</code>, <code>ask</code></li>
+          <li>提案: <code>suggest</code>, <code>propose</code>, <code>recommend</code></li>
+          <li>決定: <code>decide</code>, <code>agree</code>, <code>arrange</code></li>
+          <li>命令: <code>order</code>, <code>command</code>, <code>insist</code>, <code>urge</code></li>
+          <li>形容詞: <code>important</code>, <code>necessary</code>, <code>essential</code>, <code>vital</code>, <code>imperative</code></li>
+        </ul>
+        <p class="example">
+          <strong>The teacher suggested that he study harder.</strong><br>
+          先生は、彼がもっと一生懸命勉強するよう提案した。
+        </p>
+        <p class="example">
+          <strong>It is necessary that everyone be on time.</strong><br>
+          全員が時間通りに来ることが必要だ。
+        </p>
+        <div class="note">
+          <strong>命令法だと考える説明:</strong>
+          仮定法現在のthat節は、「事実を述べる節」というより、要求・提案・命令の中身を表す節です。
+          つまり<code>He studies.</code>のように「彼は勉強する」と事実を言っているのではなく、
+          <code>Study.</code>に近い「勉強せよ」という命令法的な内容を、that節の中に入れていると考えると理解しやすくなります。
+          そのため、主語が<code>he</code>でも<code>study</code>、主語が<code>everyone</code>でも<code>be</code>のように原形になります。
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="future">
+      <h2 id="future">5. 仮定法未来</h2>
+      <div class="grid">
+        <div class="card">
+          <h3><span class="tag violet">should</span> 万一</h3>
+          <span class="formula">If + S + should + 原形, S + will / would / can / could + 原形</span>
+          <p>
+            未来の可能性が低いことを「万一」と表します。主節には直説法の<code>will</code>も、仮定法の<code>would</code>も来ます。
+          </p>
+          <p class="example">
+            <strong>If you should need help, call me.</strong><br>
+            万一助けが必要なら、私に電話してください。
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="tag violet">were to</span> 仮に</h3>
+          <span class="formula">If + S + were to + 原形, S + would / could / might + 原形</span>
+          <p>
+            かなり起こりにくい未来や、仮に起きたら大きな影響がある未来を表します。
+          </p>
+          <p class="example">
+            <strong>If the sun were to disappear, life would be impossible.</strong><br>
+            仮に太陽が消えたら、生命は存在できないだろう。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="memory">
+      <h2 id="memory">覚え方</h2>
+      <div class="card">
+        <ul class="mini-list">
+          <li><strong>今と違う</strong>: If + 過去形, would + 原形</li>
+          <li><strong>昔と違った</strong>: If + had + 過去分詞, would have + 過去分詞</li>
+          <li><strong>要求・提案・命令の中身</strong>: that + S + 原形、または should + 原形</li>
+          <li><strong>未来の万一</strong>: If + S + should + 原形 / were to + 原形</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
